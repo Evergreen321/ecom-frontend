@@ -125,9 +125,12 @@ const Checkout = () => {
       })),
     };
 
-    const response = await fetch("http://localhost:1337/api/orders", {
+    const response = await fetch("https://ecommer.herokuapp.com/api/orders", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `bearer ${process.env.REACT_APP_STRAPI_API_TOKEN}`,
+      },
       body: JSON.stringify(requestBody),
     });
 

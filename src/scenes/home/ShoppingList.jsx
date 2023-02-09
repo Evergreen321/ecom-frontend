@@ -21,9 +21,13 @@ const ShoppingList = () => {
 
   async function getItems() {
     const items = await fetch(
-      "http://localhost:1337/api/items?populate=image",
+      "https://ecommer.herokuapp.com/api/items?populate=image",
       {
         method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `bearer ${process.env.REACT_APP_STRAPI_API_TOKEN}`,
+        },
       }
     );
     const itemsJson = await items.json();

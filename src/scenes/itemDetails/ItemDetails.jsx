@@ -25,9 +25,13 @@ const ItemDetails = () => {
 
   async function getItem() {
     const item = await fetch(
-      `http://localhost:1337/api/items/${itemId}?populate=image`,
+      `https://ecommer.herokuapp.com/api/items/${itemId}?populate=image`,
       {
         method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `bearer ${process.env.REACT_APP_STRAPI_API_TOKEN}`,
+        },
       }
     );
     const itemJson = await item.json();
@@ -36,9 +40,13 @@ const ItemDetails = () => {
 
   async function getItems() {
     const items = await fetch(
-      `http://localhost:1337/api/items?populate=image`,
+      `https://ecommer.herokuapp.com/api/items?populate=image`,
       {
         method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `bearer ${process.env.REACT_APP_STRAPI_API_TOKEN}`,
+        },
       }
     );
     const itemsJson = await items.json();
@@ -59,7 +67,8 @@ const ItemDetails = () => {
             alt={item?.name}
             width="100%"
             height="100%"
-            src={`http://localhost:1337${item?.attributes?.image?.data?.attributes?.formats?.medium?.url}`}
+            // src={`http://localhost:1337${item?.attributes?.image?.data?.attributes?.formats?.medium?.url}`}
+            src={`https://ecommer.herokuapp.com${item?.attributes?.image?.data?.attributes?.formats?.medium?.url}`}
             style={{ objectFit: "contain" }}
           />
         </Box>
