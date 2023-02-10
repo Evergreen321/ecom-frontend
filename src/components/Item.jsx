@@ -21,6 +21,7 @@ const Item = ({ item, width }) => {
     data: {
       attributes: {
         formats: {
+          // eslint-disable-next-line
           medium: { url },
         },
       },
@@ -38,7 +39,8 @@ const Item = ({ item, width }) => {
           alt={item.name}
           width="300px"
           height="400px"
-          src={`http://localhost:1337${url}`}
+          // src={`http://localhost:1337${url}`}
+          src={`${item?.attributes?.image?.data?.attributes?.formats?.medium?.url}`}
           onClick={() => navigate(`/item/${item.id}`)}
           style={{ cursor: "pointer" }}
         />

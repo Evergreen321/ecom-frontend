@@ -70,7 +70,7 @@ const CartMenu = () => {
                       width="123px"
                       height="164px"
                       // src={`http://localhost:1337${item?.attributes?.image?.data?.attributes?.formats?.medium?.url}`}
-                      src={`https://ecommer.herokuapp.com${item?.attributes?.image?.data?.attributes?.formats?.medium?.url}`}
+                      src={`${item?.attributes?.image?.data?.attributes?.formats?.medium?.url}`}
                     />
                   </Box>
 

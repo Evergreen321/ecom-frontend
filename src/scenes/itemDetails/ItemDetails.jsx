@@ -18,6 +18,8 @@ const ItemDetails = () => {
   const [count, setCount] = useState(1);
   const [item, setItem] = useState(null);
   const [items, setItems] = useState([]);
+  // console.log("items", items);
+  // console.log("item", item);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -68,7 +70,7 @@ const ItemDetails = () => {
             width="100%"
             height="100%"
             // src={`http://localhost:1337${item?.attributes?.image?.data?.attributes?.formats?.medium?.url}`}
-            src={`https://ecommer.herokuapp.com${item?.attributes?.image?.data?.attributes?.formats?.medium?.url}`}
+            src={`${item?.attributes?.image?.data?.attributes?.formats?.medium?.url}`}
             style={{ objectFit: "contain" }}
           />
         </Box>
